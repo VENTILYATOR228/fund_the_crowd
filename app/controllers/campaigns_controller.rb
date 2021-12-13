@@ -4,4 +4,8 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
   end
 
+  def index
+    @campaigns = Campaign.all
+  end
+
 end

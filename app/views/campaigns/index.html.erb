@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row d-flex align-items-center flex-column">
+    <% @campaigns.each do |campaign| %>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title: <%= campaign.campaign_name %></h5>
+          <p class="card-text">Description: <%= campaign.description %></p>
+          <%= link_to "View", campaign_path(campaign), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
