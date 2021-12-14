@@ -6,11 +6,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to 'Campaigns', campaigns_path, class: "nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Create campain', new_campaign_path, class: "nav-link active" %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Campaigns
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to 'All campaigns', campaigns_path, class: "nav-link active" %></li>
+            <li><%= link_to 'Create campain', new_campaign_path, class: "nav-link active" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
