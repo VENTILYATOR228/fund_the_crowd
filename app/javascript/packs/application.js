@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 //= require jquery
 //= require jquery_ujs
+//= require jquery2
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
