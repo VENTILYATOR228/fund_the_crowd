@@ -17,7 +17,9 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(campaign_permit)
+    @campaign.user_id = current_user[:id]
     if @campaign.save
+      flash[:notice] = "Campaign was created successfully!"
       redirect_to @campaign
     else
       render 'new'
@@ -26,6 +28,7 @@ class CampaignsController < ApplicationController
 
   def update
     if @campaign.update(campaign_permit)
+      flash[:notice] = "Campaign was updated successfully!"
       redirect_to @campaign
     else
       render 'edit'
