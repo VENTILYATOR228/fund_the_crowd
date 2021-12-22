@@ -6,7 +6,7 @@
         <div class="card-body">
           <h5 class="card-title">Title: <%= campaign.campaign_name %></h5>
           <p class="card-text">Description: <%= campaign.description %></p>
-           <p class="card-text">User: <%= campaign.user.email %></p>
+           <p class="card-text">Owner: <%= link_to campaign.user.full_name, user_path(campaign.user) %></p>
           <%= link_to 'View', campaign_path(campaign), class: 'btn btn-outline-primary' %>
           <%= link_to 'Edit', edit_campaign_path(campaign), class: 'btn btn-outline-success' %>
           <%= link_to 'Delete', campaign_path(campaign), method: :delete,remote: :true, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger' %>
