@@ -1,5 +1,6 @@
 class Campaign < ApplicationRecord
   belongs_to :user
+  has_many :bonuses
   has_many :campaign_areas
   has_many :areas, through: :campaign_areas
   validates :campaign_name, presence: true, length: { minimum: 2, maximum: 100 }

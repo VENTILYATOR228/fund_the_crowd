@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_23_104945) do
+ActiveRecord::Schema.define(version: 2021_12_23_123004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2021_12_23_104945) do
     t.string "area_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bonuses", force: :cascade do |t|
+    t.string "bonuse_name"
+    t.text "bonuse_description"
+    t.integer "bonuse_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "campaign_id"
   end
 
   create_table "campaign_areas", force: :cascade do |t|
@@ -32,6 +41,11 @@ ActiveRecord::Schema.define(version: 2021_12_23_104945) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+  end
+
+  create_table "user_bonuses", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "bonuse_id"
   end
 
   create_table "users", force: :cascade do |t|
