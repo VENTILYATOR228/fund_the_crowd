@@ -2,6 +2,8 @@ class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
 
   def show
+    @areas = @campaign.areas
+    @bonuses = @campaign.bonuses
   end
 
   def index

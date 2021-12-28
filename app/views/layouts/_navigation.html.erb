@@ -17,6 +17,11 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
+        <% if current_user %>
+        <li class="nav-item">
+          <%= link_to current_user.full_name, user_path(current_user), class: "nav-link active" %>
+        </li>
+        <% end %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown

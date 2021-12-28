@@ -3,7 +3,23 @@
     <div class="justigy-content-center">
       <h5> Campaign name: <%= @campaign.campaign_name %></h5>
       <p>Description: <%= @campaign.description %></p>
-    </div>
+      <p>
+        Areas: <% @areas.each do |area| %>
+        <%= area.area_name %>
+        <% end %>
+      </p>
+      <% @bonuses.each do |bonuse| %>
+      <div class="card text-center">
+        <div class="card-header">
+          <%= bonuse.bonuse_name %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= bonuse.bonuse_price %>$</h5>
+          <p class="card-text"><%= bonuse.bonuse_description %></p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <% end %>
     <div>
       <%= link_to "Edit", edit_campaign_path(@campaign), class: "btn btn-outline-success" %>
       <%= link_to "Delete", campaign_path(@campaign), method: :delete, remote: :true, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
