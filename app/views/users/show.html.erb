@@ -1,18 +1,19 @@
 <div>Name: <%= @user.first_name %></div>
 <div>Surname: <%= @user.last_name %></div>
 <div>E-mail: <%= @user.email %></div>
+<%= link_to 'Create campain', new_campaign_path, class: "btn btn-outline-primary" %>
 <%= link_to "Edit profile", edit_user_registration_path(@user), class: "btn btn-outline-success" %>
 
 <% @campaigns.each do |campaign| %>
 <div class="card text-center">
   <div class="card-header">
     <% campaign.areas.each do |area| %>
-      <%= area.area_name %>
+      <%= area.name %>
     <% end %>
   </div>
   <div class="card-body">
     <h5 class="card-title">
-      <%= campaign.campaign_name %>
+      <%= campaign.name %>
     </h5>
     <p class="card-text"><%= campaign.description %></p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -26,15 +27,15 @@
 <% @bonuses.each do |bonuse| %>
 <div class="card text-center">
   <div class="card-header">
-    <%= bonuse.bonuse_name %>
+    <%= bonuse.name %>
   </div>
   <div class="card-body">
-    <h5 class="card-title"><%= bonuse.bonuse_price %>$</h5>
-    <p class="card-text"><%= bonuse.bonuse_description %></p>
+    <h5 class="card-title"><%= bonuse.price %>$</h5>
+    <p class="card-text"><%= bonuse.description %></p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
   <div class="card-footer text-muted">
-    Your bonuse from "<%= bonuse.campaign.campaign_name %>"
+    Your bonuse from "<%= bonuse.campaign.name %>"
   </div>
 </div>
 <% end %>

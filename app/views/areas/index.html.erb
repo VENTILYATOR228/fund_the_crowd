@@ -1,0 +1,4 @@
+<% @areas.each do |area| %>
+  <h5>The area is <%= link_to area.name, area_path(area) %></h5>
+  <p>The number of campaigns in this area: <%= area.campaigns.count %></p>
+<% end %>

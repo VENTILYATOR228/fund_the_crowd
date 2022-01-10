@@ -1,0 +1,9 @@
+<div class='container'>
+  <div>
+    <div><%= @area.name %></div>
+    <div>Number of campaigns under this categoty: <%= @area.campaigns.count %></div>
+  </div>
+  <div>
+    <%= link_to 'edit', edit_area_path(@area), class: 'btn btn-outline-success' %>
+  </div>
+</div>

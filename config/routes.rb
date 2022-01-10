@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
-  root 'pages#home'
   resources :campaigns
+  resources :areas
+  root 'pages#home'
+  get 'admin', to: 'pages#admin'
 end
