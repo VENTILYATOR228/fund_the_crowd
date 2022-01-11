@@ -1,11 +1,12 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10">
-      <%= form_with(model: @campaign, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
+      <%= form_with(model: @bonuse, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
+
       <div class="form-group row">
         <%= f.label :name, class: "col-2 col-form-label text-light" %>
         <div class="col-10">
-          <%= f.text_field :name, class: "form-control shadow rounded", placeholder: "Name of campaign" %>
+          <%= f.text_field :name, class: "form-control shadow rounded", placeholder: "Name of bonuse" %>
         </div>
       </div>
 
@@ -17,11 +18,9 @@
       </div>
 
       <div class="form-group row">
-        <%= f.label :area, class: "col-2 col-form-label text-light" %>
+        <%= f.label "Price ($)", class: "col-2 col-form-label text-light" %>
         <div class="col-10">
-          <%= f.collection_select(:area_ids, Area.all, :id, :name,
-          { prompt: "Make your selection from the list below (can be empty)" },
-          { multiple: true, size: 3, class: "custom-select form-control shadow rounded" }) %>
+          <%= f.number_field :price, rows: 10, class: "form-control shadow rounded", placeholder: "Dollars only" %>
         </div>
       </div>
 
@@ -30,6 +29,5 @@
       </div>
       <% end %>
     </div>
-    <%= link_to '[ Cancel & go to campaigns page ]', campaigns_path, class: "row justify-content-center" %>
   </div>
 </div>

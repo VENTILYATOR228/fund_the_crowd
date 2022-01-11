@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :campaigns
   resources :areas
+  resources :bonuses, exept: [:show, :index]
   root 'pages#home'
   get 'admin', to: 'pages#admin'
 end
