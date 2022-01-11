@@ -1,8 +1,10 @@
 <div>Name: <%= @user.first_name %></div>
 <div>Surname: <%= @user.last_name %></div>
 <div>E-mail: <%= @user.email %></div>
-<%= link_to 'Create campain', new_campaign_path, class: "btn btn-outline-primary" %>
-<%= link_to "Edit profile", edit_user_registration_path(@user), class: "btn btn-outline-success" %>
+<% if @user.id == current_user.id %>
+  <%= link_to 'Create campain', new_campaign_path, class: "btn btn-outline-primary" %>
+  <%= link_to "Edit profile", edit_user_registration_path(@user), class: "btn btn-outline-success" %>
+<% end %>
 
 <% @campaigns.each do |campaign| %>
 <div class="card text-center bg-<%= cookies[:theme] == "light" ? "light" : "dark" %>">
@@ -19,7 +21,11 @@
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
   <div class="card-footer text-muted">
-    Your campaign
+    <% if @user.id == current_user.id %>
+      Your campaign
+    <% else %>
+      <%=  @user.first_name %>'s campaign
+    <% end %>
   </div>
 </div>
 <% end %>
@@ -35,7 +41,11 @@
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
   <div class="card-footer text-muted">
-    Your bonuse from "<%= bonuse.campaign.name %>"
+  <% if @user.id == current_user.id %>
+      Your bonuse from "<%= bonuse.campaign.name %>"
+    <% else %>
+      <%=  @user.first_name %>'s bonuse from "<%= bonuse.campaign.name %>"
+    <% end %>
   </div>
 </div>
 <% end %>
