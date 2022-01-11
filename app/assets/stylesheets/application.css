@@ -14,3 +14,12 @@
  *= require_tree .
  *= require_self
  */
+
+body.light {
+  color: rgb(48, 48, 48);
+  background-color: rgb(219, 219, 219);
+}
+body.dark {
+  color: rgb(204, 204, 204);
+  background-color: rgb(26, 26, 26);
+}

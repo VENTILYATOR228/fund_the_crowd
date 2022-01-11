@@ -9,7 +9,7 @@
         <% end %>
       </p>
       <% @bonuses.each do |bonuse| %>
-      <div class="card text-center">
+      <div class="card text-center bg-<%= cookies[:theme] == "light" ? "light" : "dark" %>">
         <div class="card-header">
           <%= bonuse.name %>
         </div>

@@ -5,7 +5,7 @@
 <%= link_to "Edit profile", edit_user_registration_path(@user), class: "btn btn-outline-success" %>
 
 <% @campaigns.each do |campaign| %>
-<div class="card text-center">
+<div class="card text-center bg-<%= cookies[:theme] == "light" ? "light" : "dark" %>">
   <div class="card-header">
     <% campaign.areas.each do |area| %>
       <%= area.name %>
@@ -25,7 +25,7 @@
 <% end %>
 
 <% @bonuses.each do |bonuse| %>
-<div class="card text-center">
+<div class="card text-center bg-<%= cookies[:theme] == "light" ? "light" : "dark" %>">
   <div class="card-header">
     <%= bonuse.name %>
   </div>
