@@ -1,0 +1,13 @@
+<% @bonuses.each do |bonuse| %>
+  <div class="card text-center bg-<%= cookies[:theme] == "light" ? "light" : "dark" %>">
+    <div class="card-header">
+      <%= bonuse.name %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= bonuse.price %>$</h5>
+      <p class="card-text"><%= bonuse.description %></p>
+      <%= link_to "View", campaign_bonuse_path(@campaign, bonuse), class: "btn btn-outline-info" %>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+<% end %>
